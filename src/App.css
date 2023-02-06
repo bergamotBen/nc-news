@@ -9,7 +9,6 @@ Colours
 
 .App {
   height: 100%;
-  text-align: center;
   display: grid;
   grid-template-columns: 150px auto;
   grid-template-rows: 150px auto;
@@ -56,6 +55,7 @@ Colours
   margin: 10px;
   padding: 20px;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: #242423;
