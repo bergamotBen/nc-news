@@ -9,10 +9,10 @@ const ArticlePreview = (article) => {
         />
         <h3 id="articleTitle">{article.article.title}</h3>
         <h4 id="articleAuthor">{article.article.author}</h4>
-        <div id="details">
+        <p id="details">
           votes: {article.article.votes} comments:
           {article.article.comment_count}
-        </div>
+        </p>
       </div>
     </Link>
   );
