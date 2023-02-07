@@ -16,10 +16,20 @@ const getArticleById = (article_id) => {
   });
 };
 
+const getCommentsByArticleId = (article_id) => {
+  return ncNews.get(`articles/${article_id}/comments`).then((data) => {
+    return data;
+  });
+};
 const patchArticleVotes = (article_id, inc_votes) => {
   return ncNews.patch(`articles/${article_id}`, { inc_votes }).then((data) => {
     return data;
   });
 };
 
-export { getAllArticles, getArticleById, patchArticleVotes };
+export {
+  getAllArticles,
+  getArticleById,
+  getCommentsByArticleId,
+  patchArticleVotes,
+};
