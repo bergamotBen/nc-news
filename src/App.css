@@ -14,7 +14,7 @@ Colours
   grid-template-rows: 150px auto;
   grid-template-areas:
     "logo nav "
-    "main main ";
+    "main main";
 }
 
 #logo {
@@ -88,4 +88,17 @@ Colours
   text-align: left;
 
   grid-area: details;
+}
+
+#article {
+  grid-area: main;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#article img {
+  flex-grow: 3;
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
 }
