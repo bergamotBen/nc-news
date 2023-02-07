@@ -27,9 +27,21 @@ const patchArticleVotes = (article_id, inc_votes) => {
   });
 };
 
+const postCommentByArticleId = (article_id, comment) => {
+  return ncNews
+    .post(`articles/${article_id}/comments`, {
+      body: comment.body,
+      username: comment.username,
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
 export {
   getAllArticles,
   getArticleById,
+  postCommentByArticleId,
   getCommentsByArticleId,
   patchArticleVotes,
 };
