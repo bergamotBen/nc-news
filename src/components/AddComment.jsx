@@ -9,7 +9,6 @@ const AddComment = () => {
   const userValue = useContext(UserContext);
   const [comment, setComment] = useState({});
   const [isValid, setIsValid] = useState(false);
-  //   console.log(userValue.loggedInUser.username);
 
   useEffect(() => {
     if (comment.body) {
@@ -29,13 +28,9 @@ const AddComment = () => {
     });
   };
   const submitHandler = () => {
-    console.log(article_id);
     if (isValid) {
-      console.log(comment);
       setIsValid(true);
-      postCommentByArticleId(article_id, comment).then((data) => {
-        console.log(data);
-      });
+      postCommentByArticleId(article_id, comment).then((data) => {});
     }
   };
 

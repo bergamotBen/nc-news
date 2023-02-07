@@ -17,14 +17,13 @@ const getArticleById = (article_id) => {
 };
 
 const postCommentByArticleId = (article_id, comment) => {
-  console.log(comment);
   return ncNews
     .post(`articles/${article_id}/comments`, {
       body: comment.body,
       username: comment.username,
     })
-    .then((data) => {
-      console.log(data);
+    .then(({ data }) => {
+      return data;
     });
 };
 
