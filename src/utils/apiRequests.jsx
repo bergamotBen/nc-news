@@ -16,4 +16,16 @@ const getArticleById = (article_id) => {
   });
 };
 
-export { getAllArticles, getArticleById };
+const postCommentByArticleId = (article_id, comment) => {
+  console.log(comment);
+  return ncNews
+    .post(`articles/${article_id}/comments`, {
+      body: comment.body,
+      username: comment.username,
+    })
+    .then((data) => {
+      console.log(data);
+    });
+};
+
+export { getAllArticles, getArticleById, postCommentByArticleId };

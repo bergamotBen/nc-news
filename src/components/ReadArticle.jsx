@@ -1,6 +1,12 @@
+import AddComment from "./AddComment";
 import Article from "./Article";
 
 const ReadArticle = () => {
-  return <Article />;
+  return (
+    <section>
+      <Article />
+      <AddComment />
+    </section>
+  );
 };
 export default ReadArticle;
