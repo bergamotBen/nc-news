@@ -13,13 +13,16 @@ const Comments = () => {
     });
   }, [article_id]);
 
-  return (
-    <section id="comments">
-      <h2>comments</h2>
-      {comments.map((comment) => {
-        return <Comment comment={comment} key={comment.comment_id} />;
-      })}
-    </section>
-  );
+  if (comments.length > 0) {
+    return (
+      <section id="comments">
+        <h2>comments</h2>
+        {comments.map((comment) => {
+          return <Comment comment={comment} key={comment.comment_id} />;
+        })}
+      </section>
+    );
+  }
+  return <h2>👀 no comments to see here yet 👀 </h2>;
 };
 export default Comments;
