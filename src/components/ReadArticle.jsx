@@ -1,10 +1,16 @@
 import AddComment from "./AddComment";
 import Article from "./Article";
+import Comments from "./Comments";
 
 const ReadArticle = () => {
   return (
-    <section>
-      <Article />
+    <section id="readArticle">
+      (
+      <section>
+        <Article />
+        <Comments />
+      </section>
+      )
       <AddComment />
     </section>
   );

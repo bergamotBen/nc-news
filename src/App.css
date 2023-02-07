@@ -13,7 +13,7 @@ Colours
   grid-template-columns: 150px auto;
   grid-template-rows: 150px auto;
   grid-template-areas:
-    "logo nav "
+    "logo nav"
     "main main";
 }
 
@@ -90,8 +90,17 @@ Colours
   grid-area: details;
 }
 
-#article {
+#readArticle {
   grid-area: main;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "article"
+    "comments";
+}
+#article {
+  grid-area: article;
   display: flex;
   flex-wrap: wrap;
 }
@@ -101,4 +110,14 @@ Colours
   height: 300px;
   width: 300px;
   object-fit: cover;
+}
+
+#comments {
+  grid-area: comments;
+}
+
+#comment {
+  background-color: #f5925d;
+  margin: 10px;
+  padding: 5px;
 }
