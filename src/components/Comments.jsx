@@ -1,17 +1,16 @@
 import { getCommentsByArticleId } from "../utils/apiRequests";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Comment from "./Comment";
 
-const Comments = () => {
-  const [comments, setComments] = useState([]);
+const Comments = ({ comment, comments, setComments }) => {
   const { article_id } = useParams();
 
   useEffect(() => {
     getCommentsByArticleId(article_id).then(({ data }) => {
       setComments(data.comments);
     });
-  }, [article_id]);
+  }, [article_id, setComments]);
 
   if (comments.length > 0) {
     return (
