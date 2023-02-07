@@ -1,6 +1,12 @@
 import Article from "./Article";
+import Comments from "./Comments";
 
 const ReadArticle = () => {
-  return <Article />;
+  return (
+    <section id="readArticle">
+      <Article />
+      <Comments />
+    </section>
+  );
 };
 export default ReadArticle;
