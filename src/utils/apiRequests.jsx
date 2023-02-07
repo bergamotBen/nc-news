@@ -10,4 +10,10 @@ const getAllArticles = () => {
   });
 };
 
-export { getAllArticles };
+const getArticleById = (article_id) => {
+  return ncNews.get(`articles/${article_id}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export { getAllArticles, getArticleById };
