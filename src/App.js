@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Logo />
+
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
