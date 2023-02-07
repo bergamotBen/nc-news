@@ -32,7 +32,7 @@ const AddComment = ({ comment, setComment, setComments }) => {
       setComments((currComments) => {
         return [comment, ...currComments];
       });
-
+      setComment({});
       postCommentByArticleId(article_id, comment).catch((err) => {
         alert("Your comment failed to post. Try again.");
       });
@@ -48,7 +48,7 @@ const AddComment = ({ comment, setComment, setComments }) => {
           changeHandler("body", e.target.value);
         }}
       ></input>
-      <button disabled={!isValid} onClick={submitHandler}>
+      <button disabled={!isValid} type="submit" onClick={submitHandler}>
         post comment
       </button>
     </section>
