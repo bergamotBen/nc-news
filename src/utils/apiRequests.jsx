@@ -16,4 +16,10 @@ const getArticleById = (article_id) => {
   });
 };
 
-export { getAllArticles, getArticleById };
+const patchArticleVotes = (article_id, inc_votes) => {
+  return ncNews.patch(`articles/${article_id}`, { inc_votes }).then((data) => {
+    return data;
+  });
+};
+
+export { getAllArticles, getArticleById, patchArticleVotes };

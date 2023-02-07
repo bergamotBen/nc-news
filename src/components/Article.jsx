@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getArticleById } from "../utils/apiRequests";
+import { getArticleById, patchArticleVotes } from "../utils/apiRequests";
+
 const Article = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
@@ -27,7 +28,10 @@ const Article = () => {
       </div>
       <p>{article.article.body}</p>
       <h3>
-        in: {article.article.topic} <br></br>votes: {article.article.votes}
+        in: {article.article.topic} <br></br>
+        <div onClick={patchArticleVotes(article_id, 1)}>⬆️</div>
+        votes: {article.article.votes}{" "}
+        <div onClick={patchArticleVotes(article_id, -1)}>⬇️</div>
       </h3>
     </section>
   );
