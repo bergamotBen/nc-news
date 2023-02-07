@@ -6,8 +6,25 @@ const Article = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [articleVotes, setArticleVotes] = useState(0);
+  const articleVote = (vote) => {
+    setArticleVotes((currVotes) => {
+      return currVotes + vote;
+    });
+    patchArticleVotes(article_id, vote)
+      .then((articleById) => {
+        setArticle(articleById.data);
+      })
+      .catch(() => {
+        setArticleVotes((currVotes) => {
+          alert("Your vote didn't count sorry. Try again.");
+          return currVotes - vote;
+        });
+      });
+  };
   useEffect(() => {
     getArticleById(article_id).then((articleById) => {
+      setArticleVotes(articleById.article.votes);
       setArticle(articleById);
       setIsLoading(false);
     });
@@ -29,9 +46,21 @@ const Article = () => {
       <p>{article.article.body}</p>
       <h3>
         in: {article.article.topic} <br></br>
-        <div onClick={patchArticleVotes(article_id, 1)}>⬆️</div>
-        votes: {article.article.votes}{" "}
-        <div onClick={patchArticleVotes(article_id, -1)}>⬇️</div>
+        <div
+          onClick={() => {
+            articleVote(1);
+          }}
+        >
+          ⬆️
+        </div>
+        votes: {articleVotes}
+        <div
+          onClick={() => {
+            articleVote(-1);
+          }}
+        >
+          ⬇️
+        </div>
       </h3>
     </section>
   );
