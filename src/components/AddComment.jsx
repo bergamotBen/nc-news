@@ -4,10 +4,9 @@ import { postCommentByArticleId } from "../utils/apiRequests";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 
-const AddComment = () => {
+const AddComment = ({ comment, setComment, setComments }) => {
   const { article_id } = useParams();
   const userValue = useContext(UserContext);
-  const [comment, setComment] = useState({});
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
@@ -19,9 +18,9 @@ const AddComment = () => {
   }, [comment, setComment]);
 
   const changeHandler = (key, value) => {
-    setComment((prev) => {
+    setComment((currComments) => {
       setIsValid(true);
-      const copy = { ...prev };
+      const copy = { ...currComments };
       copy[key] = value;
       copy["username"] = userValue.loggedInUser.username;
       return copy;
@@ -30,12 +29,18 @@ const AddComment = () => {
   const submitHandler = () => {
     if (isValid) {
       setIsValid(true);
-      postCommentByArticleId(article_id, comment).then((data) => {});
+      setComments((currComments) => {
+        return [comment, ...currComments];
+      });
+
+      postCommentByArticleId(article_id, comment).catch((err) => {
+        alert("Your comment failed to post. Try again.");
+      });
     }
   };
 
   return (
-    <section>
+    <section id="addComment">
       <h2>add comment</h2>
       <input
         type="text"
