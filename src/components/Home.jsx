@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import AllArticles from "./AllArticles";
 import SortAndFilter from "./SortAndFilter";
+import { useState } from "react";
 import ArticlesByTopic from "./ArticlesByTopic";
 import { getTopics } from "../utils/apiRequests";
 import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
+  const [orderQueries, setOrderQueries] = useState([]);
   const [params] = useSearchParams();
   const topic = params.get("topic");
   const [topics, setTopics] = useState([]);
@@ -24,7 +26,8 @@ const Home = () => {
   } else {
     return (
       <main id="home">
-        <SortAndFilter topics={topics} /> <ArticlesByTopic topic={topic} />
+        <SortAndFilter topics={topics} setOrderQueries={setOrderQueries} />{" "}
+        <ArticlesByTopic topic={topic} orderQueries={orderQueries} />
       </main>
     );
   }
