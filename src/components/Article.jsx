@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getArticleById, patchArticleVotes } from "../utils/apiRequests";
 
 const Article = () => {
+  const goTo = useNavigate();
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -23,12 +24,16 @@ const Article = () => {
       });
   };
   useEffect(() => {
-    getArticleById(article_id).then((articleById) => {
-      setArticleVotes(articleById.article.votes);
-      setArticle(articleById);
-      setIsLoading(false);
-    });
-  }, [article_id]);
+    getArticleById(article_id)
+      .then((articleById) => {
+        setArticleVotes(articleById.article.votes);
+        setArticle(articleById);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        return goTo("/notFound");
+      });
+  }, [article_id, goTo]);
 
   if (isLoading) {
     return <h2> loading </h2>;
