@@ -18,13 +18,23 @@ const getAllArticles = (orderQueries) => {
       return data;
     });
   }
-  const getArticlesByTopic = (topic) => {
+};
+
+const getArticlesByTopic = (topic, orderQueries) => {
+  if (!orderQueries[0]) {
     return ncNews.get(`/articles?topic=${topic}`).then(({ data }) => {
       return data;
     });
-  };
+  } else {
+    return ncNews
+      .get(`/articles?topic=${topic}`, {
+        params: { sort_by: orderQueries[0], order: orderQueries[1] },
+      })
+      .then(({ data }) => {
+        return data;
+      });
+  }
 };
-
 const getArticleById = (article_id) => {
   return ncNews.get(`articles/${article_id}`).then(({ data }) => {
     return data;

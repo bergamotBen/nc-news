@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SortAndFilter = ({ setOrderQueries }{ topics }) => {
+const SortAndFilter = ({ setOrderQueries, topics }) => {
   const [sortOrder, setSortOrder] = useState(["DESC", " ⬇️ "]);
   const [orderBy, setOrderBy] = useState("");
 
@@ -24,7 +23,7 @@ const SortAndFilter = ({ setOrderQueries }{ topics }) => {
   const [selectedTopic, setSelectedTopic] = useState("choose a topic");
   const navigateTo = useNavigate();
 
-  const changeHandler = (e) => {
+  const selectChangeHandler = (e) => {
     setSelectedTopic(e.target.value);
   };
 
@@ -41,10 +40,8 @@ const SortAndFilter = ({ setOrderQueries }{ topics }) => {
       <h3>sort and filter</h3>
 
       <form onSubmit={submitHandler}>
-        <select onChange={changeHandler}>
-          <option key="select" selected="selected">
-            choose a topic
-          </option>
+        <select onChange={selectChangeHandler}>
+          <option key="select">choose a topic</option>
           <option key="selectAll" value="">
             all
           </option>
