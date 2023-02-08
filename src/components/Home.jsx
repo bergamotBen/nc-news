@@ -16,11 +16,12 @@ const Home = () => {
       setTopics(data.topics);
     });
   }, []);
+
   if (topic === null) {
     return (
       <main id="home">
         <SortAndFilter topics={topics} setOrderQueries={setOrderQueries} />{" "}
-        <AllArticles orderQueries={orderQueries} topic={topic} />
+        <AllArticles orderQueries={orderQueries} />
       </main>
     );
   } else {

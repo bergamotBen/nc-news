@@ -17,7 +17,7 @@ const ArticlesByTopic = ({ topic, orderQueries }) => {
   }
   return (
     <section id="allArticles">
-      <h3>{topic ? `articles about ${topic}` : `all articles`}</h3>
+      <h1>{topic ? `articles about ${topic}` : `all articles`}</h1>
       {articlePreviews.map((article) => {
         return <ArticlePreview article={article} key={article.article_id} />;
       })}
