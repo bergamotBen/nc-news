@@ -6,10 +6,7 @@ const Home = () => {
   const [orderQueries, setOrderQueries] = useState([]);
   return (
     <main id="home">
-      <SortAndFilter
-        orderQueries={orderQueries}
-        setOrderQueries={setOrderQueries}
-      />{" "}
+      <SortAndFilter setOrderQueries={setOrderQueries} />{" "}
       <AllArticles orderQueries={orderQueries} />
     </main>
   );

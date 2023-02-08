@@ -1,5 +1,5 @@
 import { useState } from "react";
-const SortAndFilter = ({ orderQueries, setOrderQueries }) => {
+const SortAndFilter = ({ setOrderQueries }) => {
   const [sortOrder, setSortOrder] = useState(["DESC", " ⬇️ "]);
   const [orderBy, setOrderBy] = useState("");
 
@@ -22,6 +22,7 @@ const SortAndFilter = ({ orderQueries, setOrderQueries }) => {
     <section id="sortAndFilter">
       <h3>sort and filter</h3>
       <form>
+        <p>sort</p>
         <input
           type="radio"
           name="sortBy"
