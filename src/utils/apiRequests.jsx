@@ -14,10 +14,15 @@ const getAllArticles = (orderQueries) => {
         return data;
       });
   } else {
-    return ncNews.get("/articles").then(({ data }) => {
+    return ncNews.get(`/articles`).then(({ data }) => {
       return data;
     });
   }
+  const getArticlesByTopic = (topic) => {
+    return ncNews.get(`/articles?topic=${topic}`).then(({ data }) => {
+      return data;
+    });
+  };
 };
 
 const getArticleById = (article_id) => {
@@ -48,10 +53,18 @@ const postCommentByArticleId = (article_id, comment) => {
     });
 };
 
+const getTopics = () => {
+  return ncNews.get("/topics").then((data) => {
+    return data;
+  });
+};
+
 export {
   getAllArticles,
+  getArticlesByTopic,
   getArticleById,
   postCommentByArticleId,
   getCommentsByArticleId,
   patchArticleVotes,
+  getTopics,
 };
