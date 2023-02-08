@@ -1,10 +1,16 @@
 import AllArticles from "./AllArticles";
 import SortAndFilter from "./SortAndFilter";
+import { useState } from "react";
 
 const Home = () => {
+  const [orderQueries, setOrderQueries] = useState([]);
   return (
     <main id="home">
-      <SortAndFilter /> <AllArticles />
+      <SortAndFilter
+        orderQueries={orderQueries}
+        setOrderQueries={setOrderQueries}
+      />{" "}
+      <AllArticles orderQueries={orderQueries} />
     </main>
   );
 };

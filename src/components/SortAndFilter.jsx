@@ -1,25 +1,47 @@
 import { useState } from "react";
-const SortAndFilter = () => {
+const SortAndFilter = ({ orderQueries, setOrderQueries }) => {
   const [sortOrder, setSortOrder] = useState(["DESC", " ⬇️ "]);
-  // ⬇️
+  const [orderBy, setOrderBy] = useState("");
+
   const clickHandler = () => {
     if (sortOrder[0] === "DESC") {
+      setOrderQueries([orderBy, "ASC"]);
       setSortOrder(["ASC", " ⬆️ "]);
-      console.log(sortOrder[0]);
     } else if (sortOrder[0] === "ASC") {
+      setOrderQueries([orderBy, "DESC"]);
       setSortOrder(["DESC", " ⬇️ "]);
-      console.log(sortOrder[0]);
     }
+  };
+
+  const changeHandler = (e) => {
+    const orderBy = e.target.value;
+    setOrderBy(orderBy);
+    setOrderQueries([orderBy, sortOrder[0]]);
   };
   return (
     <section id="sortAndFilter">
       <h3>sort and filter</h3>
       <form>
-        <input type="radio" name="sortBy" value="createdAt" />
-        <label htmlFor="createdAt">created at</label>
-        <input type="radio" name="sortBy" value="comments" />
-        <label htmlFor="comments">comments</label>
-        <input type="radio" name="sortBy" value="votes" />
+        <input
+          type="radio"
+          name="sortBy"
+          value="created_at"
+          onChange={changeHandler}
+        />
+        <label htmlFor="created_at">created at</label>
+        <input
+          type="radio"
+          name="sortBy"
+          value="comment_count"
+          onChange={changeHandler}
+        />
+        <label htmlFor="comment_count">comments</label>
+        <input
+          type="radio"
+          name="sortBy"
+          value="votes"
+          onChange={changeHandler}
+        />
         <label htmlFor="votes">votes</label>
         <label
           onClick={() => {
