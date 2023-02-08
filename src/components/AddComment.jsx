@@ -18,9 +18,9 @@ const AddComment = ({ comment, setComment, setComments }) => {
   }, [comment, setComment]);
 
   const changeHandler = (key, value) => {
-    setComment((currComments) => {
+    setComment((currComment) => {
       setIsValid(true);
-      const copy = { ...currComments };
+      const copy = { ...currComment };
       copy[key] = value;
       copy["username"] = userValue.loggedInUser.username;
       return copy;

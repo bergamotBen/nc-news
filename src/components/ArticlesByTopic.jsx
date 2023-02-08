@@ -2,15 +2,15 @@ import ArticlePreview from "./ArticlePreview";
 import { useState, useEffect } from "react";
 import { getArticlesByTopic } from "../utils/apiRequests";
 
-const ArticlesByTopic = ({ topic }) => {
+const ArticlesByTopic = ({ orderQueries, topic }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [articlePreviews, setArticlePreviews] = useState([]);
   useEffect(() => {
-    getArticlesByTopic(topic).then((articles) => {
+    getArticlesByTopic(topic, orderQueries).then((articles) => {
       setArticlePreviews(articles.articles);
       setIsLoading(false);
     });
-  }, [topic]);
+  }, [topic, orderQueries]);
   if (isLoading) {
     return <p>loading</p>;
   }

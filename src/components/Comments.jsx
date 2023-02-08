@@ -17,7 +17,13 @@ const Comments = ({ comment, comments, setComments }) => {
       <section id="comments">
         <h2>comments</h2>
         {comments.map((comment) => {
-          return <Comment comment={comment} key={comment.comment_id} />;
+          return (
+            <Comment
+              comment={comment}
+              setComments={setComments}
+              key={comment.comment_id}
+            />
+          );
         })}
       </section>
     );
