@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import asc from "../assets/asc.png";
+import desc from "../assets/desc.png";
 
 const SortAndFilter = ({ setOrderQueries, topics }) => {
-  const [sortOrder, setSortOrder] = useState(["DESC", " ⬇️ "]);
+  const [sortOrder, setSortOrder] = useState(["DESC", desc]);
   const [orderBy, setOrderBy] = useState("");
 
   const clickHandler = () => {
     if (sortOrder[0] === "DESC") {
       setOrderQueries([orderBy, "ASC"]);
-      setSortOrder(["ASC", " ⬆️ "]);
+      setSortOrder(["ASC", asc]);
     } else if (sortOrder[0] === "ASC") {
       setOrderQueries([orderBy, "DESC"]);
-      setSortOrder(["DESC", " ⬇️ "]);
+      setSortOrder(["DESC", desc]);
     }
   };
 
@@ -47,6 +49,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
             return <option key={topic.slug}>{topic.slug}</option>;
           })}
         </select>
+        {"  "}
         <button tabIndex="2">submit</button>
       </form>
 
@@ -82,7 +85,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
             clickHandler();
           }}
         >
-          {sortOrder[1]}
+          <img src={sortOrder[1]} height="22px" alt="sort order"></img>
         </label>
       </form>
     </section>
