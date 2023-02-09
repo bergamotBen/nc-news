@@ -54,7 +54,7 @@ const Article = () => {
       </div>
       <p>{article.article.body}</p>
 
-      <article id="votes">
+      <article id="articleVotes">
         <img
           src={asc}
           height="18px"

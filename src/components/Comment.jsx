@@ -96,7 +96,7 @@ const Comment = ({ comment, setComment, setComments }) => {
         </div>
       ) : (
         <div>
-          <p>
+          <p className="commentBody">
             {userValue.loggedInUser.username}, {posted[0]}
           </p>
 

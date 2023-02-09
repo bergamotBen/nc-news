@@ -107,15 +107,15 @@ h4 {
   text-decoration: none;
   height: 100%;
   background-color: #333533;
-  grid-area: allArticles;
 }
 .articlePreview {
   text-align: left;
   text-decoration: none;
   color: #e8eddf;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 0px;
   display: flex;
-  align-items: center;
+  align-items: last baseline;
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: #333533;
@@ -128,33 +128,28 @@ h4 {
 }
 
 .articlePreview img {
-  flex-grow: 10;
-  padding: 10px;
-  height: 200px;
+  flex-grow: 500;
+  height: 250px;
   object-fit: cover;
-  /* flex-grow: 3;
-  height: 150px;
-  width: 150px;
-  object-fit: cover; */
 }
 
 #articleTitle {
   flex-grow: 3;
   text-decoration: none;
-  grid-area: articleTitle;
   font-weight: bolder;
+  text-align: right;
+  letter-spacing: 0.2em;
+  line-height: 170%;
 }
 #articleAuthor {
-  flex-grow: 1;
+  flex-grow: 100;
   text-decoration: none;
-  grid-area: articleAuthor;
+  text-align: left;
 }
 
 #details {
   flex-grow: 1;
-  text-align: left;
-
-  grid-area: details;
+  text-align: right;
 }
 
 #readArticle {
@@ -186,7 +181,7 @@ h4 {
 
 #comment {
   background-color: #f5925d;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   padding-left: 2px;
   padding-right: 2px;
   padding-top: 1px;
@@ -266,10 +261,13 @@ label {
 }
 
 #votes img {
-  margin-left: 6px;
+  margin-left: 5px;
   margin-bottom: -3px;
 }
-
+#articleVotes img {
+  margin-left: -2px;
+  margin-bottom: -3px;
+}
 .commentBody {
   margin-left: 8px;
   margin-top: 4px;
