@@ -282,8 +282,8 @@ label {
 
 @media only screen and (min-width: 700px) {
   .App {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 6.5%;
+    margin-right: 6.5%;
   }
 
   #allPreviews {
