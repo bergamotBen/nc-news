@@ -186,11 +186,29 @@ h4 {
 
 #comment {
   background-color: #f5925d;
-  margin: 10px;
-  padding: 5px;
+  margin-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 1px;
+}
+#comments h2 {
+  display: flex;
+  align-items: center;
+}
+#comments img {
+  margin-top: 2px;
+  padding-right: 0.5rem;
 }
 #addComment {
   grid-area: addComment;
+}
+#addComment h2 {
+  display: flex;
+  align-items: center;
+}
+#addComment img {
+  padding-left: 3px;
+  padding-right: 0.5rem;
 }
 
 input[type="text"] {
@@ -199,6 +217,8 @@ input[type="text"] {
   border-radius: 0px;
   border: solid 1px;
   border-color: #333533;
+  padding: 8px;
+  width: 300px;
 }
 button {
   font-family: "Roboto Mono", monospace;
@@ -219,9 +239,10 @@ button:disabled {
   font-family: "Roboto Mono", monospace;
   border: solid 1px;
   font-size: 15px;
-  border-color: #333533;
-  background-color: #333533;
-  transition: 0.2s;
+  border-color: #878787;
+  background-color: #878787;
+  transition: 0.4s;
+  color: #e8eddf;
 }
 
 #user {
@@ -242,4 +263,17 @@ select {
 label {
   font-family: "Roboto Mono", monospace;
   font-size: 14px;
+}
+
+#votes img {
+  margin-left: 6px;
+  margin-bottom: -3px;
+}
+
+.commentBody {
+  margin-left: 8px;
+  margin-top: 4px;
+}
+#postCommentButton {
+  padding: 8px;
 }

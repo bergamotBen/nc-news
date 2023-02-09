@@ -18,7 +18,6 @@ const Comments = ({ comment, comments, setComments, setComment }) => {
     return (
       <section id="comments">
         <h2>
-          {"  "}
           <img src={userComments} alt="" height="30px" />
           comments
         </h2>

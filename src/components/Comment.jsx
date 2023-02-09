@@ -67,10 +67,10 @@ const Comment = ({ comment, setComment, setComments }) => {
 
   return (
     <article id="comment">
-      <p> {comment.body}</p>
+      <p className="commentBody"> {comment.body}</p>
       {posted.length > 1 ? (
         <div>
-          <p>
+          <p className="commentBody">
             Posted by {comment.author}, on {posted[2]}/{posted[1]}/{posted[0]}{" "}
             at {posted[3]}:{posted[4]}.
           </p>
@@ -83,7 +83,7 @@ const Comment = ({ comment, setComment, setComments }) => {
                 commentVote(1);
               }}
             />
-            votes: {commentVotes}
+            votes:{commentVotes}
             <img
               alt="down arrow"
               src={desc}

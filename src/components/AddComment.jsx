@@ -28,7 +28,7 @@ const AddComment = ({ comment, setComment, setComments }) => {
     });
   };
   const submitHandler = () => {
-    if (isValid) {
+    if (isValid && comment.body.replace(/\s/g, "").length) {
       setIsValid(true);
       setComments((currComments) => {
         return [comment, ...currComments];
@@ -56,7 +56,12 @@ const AddComment = ({ comment, setComment, setComments }) => {
         }}
       ></input>{" "}
       {"  "}
-      <button disabled={!isValid} type="submit" onClick={submitHandler}>
+      <button
+        disabled={!isValid}
+        type="submit"
+        onClick={submitHandler}
+        id="postCommentButton"
+      >
         post
       </button>
     </section>
