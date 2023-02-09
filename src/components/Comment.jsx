@@ -3,11 +3,11 @@ import { UserContext } from "../contexts/UserContext";
 import { patchCommentVotes } from "../utils/apiRequests";
 import { deleteComment } from "../utils/apiRequests";
 
-const Comment = ({ comment, setComment }) => {
+const Comment = ({ comment, setComment, setComments }) => {
   const { comment_id } = comment;
   const userValue = useContext(UserContext);
   const [commentVotes, setCommentVotes] = useState(0);
-
+  const isUser = comment.author === userValue.loggedInUser.username;
   const commentVote = (vote) => {
     setCommentVotes((currVotes) => {
       return currVotes + vote;
@@ -66,10 +66,29 @@ const Comment = ({ comment, setComment }) => {
     <article id="comment">
       <p> {comment.body}</p>
       {posted.length > 1 ? (
-        <p>
-          Posted by {comment.author}, on {posted[2]}/{posted[1]}/{posted[0]} at{" "}
-          {posted[3]}:{posted[4]}.
-        </p>
+        <div>
+          <p>
+            Posted by {comment.author}, on {posted[2]}/{posted[1]}/{posted[0]}{" "}
+            at {posted[3]}:{posted[4]}.
+          </p>
+          <section id="votes">
+            <div
+              onClick={() => {
+                commentVote(1);
+              }}
+            >
+              ⬆️
+            </div>
+            votes: {commentVotes}
+            <div
+              onClick={() => {
+                commentVote(-1);
+              }}
+            >
+              ⬇️
+            </div>
+          </section>
+        </div>
       ) : (
         <div>
           <p>
@@ -86,23 +105,15 @@ const Comment = ({ comment, setComment }) => {
           </p>
         </div>
       )}
-      <section id="votes">
-        <div
-          onClick={() => {
-            commentVote(1);
-          }}
-        >
-          ⬆️
-        </div>
-        votes: {commentVotes}
-        <div
-          onClick={() => {
-            commentVote(-1);
-          }}
-        >
-          ⬇️
-        </div>
-      </section>
+      <p
+        hidden={!isUser}
+        onClick={() => {
+          deleteHandler();
+        }}
+      >
+        {" "}
+        🗑{" "}
+      </p>
     </article>
   );
 };

@@ -13,7 +13,7 @@ const Nav = () => {
         <img src={avatar_url} alt="user avatar"></img>
         <h4>{username}</h4>
       </section>
-    </div>
+    </nav>
   );
 };
 export default Nav;

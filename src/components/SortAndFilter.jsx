@@ -56,7 +56,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
           name="sortBy"
           value="created_at"
           tabindex="3"
-          onChange={changeHandler}
+          onChange={orderChangeHandler}
         />
         <label htmlFor="created_at">date created</label>
         <input
@@ -64,7 +64,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
           name="sortBy"
           value="comment_count"
           tabindex="4"
-          onChange={changeHandler}
+          onChange={orderChangeHandler}
         />
         <label htmlFor="comment_count">comments</label>
         <input
@@ -72,7 +72,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
           name="sortBy"
           value="votes"
           tabindex="5"
-          onChange={changeHandler}
+          onChange={orderChangeHandler}
         />
         <label htmlFor="votes">votes</label>
         <label
