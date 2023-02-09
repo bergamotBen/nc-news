@@ -32,15 +32,19 @@ Colours
   background-color: #333533;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 90px auto;
+  grid-template-rows: auto auto;
   grid-template-areas:
     "sortAndFilter"
     "allArticles";
 }
 #sortAndFilter {
+  align-items: baseline;
+  padding: 3px;
   height: 100%;
   background-color: #f5925d;
   grid-area: sortAndFilter;
+  display: flex;
+  justify-content: space-around;
 }
 #allArticles {
   text-decoration: none;

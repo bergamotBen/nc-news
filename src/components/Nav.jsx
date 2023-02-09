@@ -1,8 +1,8 @@
 const Nav = () => {
   return (
-    <div id="nav">
+    <nav id="nav">
       <h3>nav</h3>
-    </div>
+    </nav>
   );
 };
 export default Nav;

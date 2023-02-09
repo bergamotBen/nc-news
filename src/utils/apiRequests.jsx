@@ -4,12 +4,37 @@ const ncNews = axios.create({
   baseURL: "https://news-7d6f.onrender.com/api",
 });
 
-const getAllArticles = () => {
-  return ncNews.get("/articles").then(({ data }) => {
-    return data;
-  });
+const getAllArticles = (orderQueries) => {
+  if (orderQueries[0]) {
+    return ncNews
+      .get("/articles", {
+        params: { sort_by: orderQueries[0], order: orderQueries[1] },
+      })
+      .then(({ data }) => {
+        return data;
+      });
+  } else {
+    return ncNews.get(`/articles`).then(({ data }) => {
+      return data;
+    });
+  }
 };
 
+const getArticlesByTopic = (topic, orderQueries) => {
+  if (!orderQueries[0]) {
+    return ncNews.get(`/articles?topic=${topic}`).then(({ data }) => {
+      return data;
+    });
+  } else {
+    return ncNews
+      .get(`/articles?topic=${topic}`, {
+        params: { sort_by: orderQueries[0], order: orderQueries[1] },
+      })
+      .then(({ data }) => {
+        return data;
+      });
+  }
+};
 const getArticleById = (article_id) => {
   return ncNews.get(`articles/${article_id}`).then(({ data }) => {
     return data;
@@ -38,10 +63,25 @@ const postCommentByArticleId = (article_id, comment) => {
     });
 };
 
+const getTopics = () => {
+  return ncNews.get("/topics").then((data) => {
+    return data;
+  });
+};
+
+const patchCommentVotes = (comment_id, inc_votes) => {
+  return ncNews.patch(`comments/${comment_id}`, { inc_votes }).then((data) => {
+    return data;
+  });
+};
+
 export {
   getAllArticles,
+  getArticlesByTopic,
   getArticleById,
   postCommentByArticleId,
   getCommentsByArticleId,
   patchArticleVotes,
+  getTopics,
+  patchCommentVotes,
 };

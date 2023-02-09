@@ -18,6 +18,7 @@ const ReadArticle = () => {
         comment={comment}
         comments={comments}
         setComments={setComments}
+        setComment={setComment}
       />
     </section>
   );

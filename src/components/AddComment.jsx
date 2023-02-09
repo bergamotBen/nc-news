@@ -43,13 +43,15 @@ const AddComment = ({ comment, setComment, setComments }) => {
     <section id="addComment">
       <h2>add comment</h2>
       <input
+        id="commentInput"
         type="text"
+        default=""
         onChange={(e) => {
           changeHandler("body", e.target.value);
         }}
       ></input>
       <button disabled={!isValid} type="submit" onClick={submitHandler}>
-        post comment
+        post
       </button>
     </section>
   );
