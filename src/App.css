@@ -197,3 +197,7 @@ button:disabled {
 #user img {
   height: 50px;
 }
+select {
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+}
