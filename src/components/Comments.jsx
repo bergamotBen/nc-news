@@ -20,6 +20,7 @@ const Comments = ({ comment, comments, setComments, setComment }) => {
           return (
             <Comment
               comment={comment}
+              setComments={setComments}
               setComment={setComment}
               key={comment.comment_id}
             />

@@ -5,7 +5,7 @@ const ncNews = axios.create({
 });
 
 const getAllArticles = (orderQueries) => {
-  if (orderQueries[0]) {
+  if (orderQueries) {
     return ncNews
       .get("/articles", {
         params: { sort_by: orderQueries[0], order: orderQueries[1] },
@@ -21,20 +21,15 @@ const getAllArticles = (orderQueries) => {
 };
 
 const getArticlesByTopic = (topic, orderQueries) => {
-  if (!orderQueries[0]) {
-    return ncNews.get(`/articles?topic=${topic}`).then(({ data }) => {
+  return ncNews
+    .get(`/articles?topic=${topic}`, {
+      params: { sort_by: orderQueries[0], order: orderQueries[1] },
+    })
+    .then(({ data }) => {
       return data;
     });
-  } else {
-    return ncNews
-      .get(`/articles?topic=${topic}`, {
-        params: { sort_by: orderQueries[0], order: orderQueries[1] },
-      })
-      .then(({ data }) => {
-        return data;
-      });
-  }
 };
+
 const getArticleById = (article_id) => {
   return ncNews.get(`articles/${article_id}`).then(({ data }) => {
     return data;
@@ -75,6 +70,18 @@ const patchCommentVotes = (comment_id, inc_votes) => {
   });
 };
 
+const deleteComment = (commentId) => {
+  return ncNews
+    .delete(`/comments/${commentId}`)
+    .then(() => {
+      const complete = "your comment has been deleted";
+      return complete;
+    })
+    .catch((err) => {
+      alert(err);
+    });
+};
+
 export {
   getAllArticles,
   getArticlesByTopic,
@@ -84,4 +91,5 @@ export {
   patchArticleVotes,
   getTopics,
   patchCommentVotes,
+  deleteComment,
 };

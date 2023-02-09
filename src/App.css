@@ -22,7 +22,10 @@ Colours
   background-color: #e8eddf;
 }
 #nav {
+  align-items: center;
   grid-area: nav;
+  display: flex;
+  justify-content: space-between;
   background-color: #f5cb5c;
 }
 #home {
@@ -128,4 +131,11 @@ Colours
 }
 #addComment {
   grid-area: addComment;
+}
+
+#user {
+  align-content: end;
+}
+#user img {
+  height: 50px;
 }
