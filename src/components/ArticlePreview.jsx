@@ -5,7 +5,7 @@ const ArticlePreview = (article) => {
       to={`/articles/${article.article.article_id}`}
       aria-label="click to view"
     >
-      <article id="articlePreview">
+      <article className="articlePreview">
         <img
           src={article.article.article_img_url}
           alt={article.article.title}
