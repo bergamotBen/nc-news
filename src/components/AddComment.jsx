@@ -35,6 +35,7 @@ const AddComment = ({ comment, setComment, setComments }) => {
       setComment({});
       postCommentByArticleId(article_id, comment).catch((err) => {
         alert("Your comment failed to post. Try again.");
+        window.location.reload();
       });
     }
   };
