@@ -36,21 +36,23 @@ const Article = () => {
   }, [article_id, goTo]);
 
   if (isLoading) {
-    return <h2> loading </h2>;
+    return <h1> loading </h1>;
   }
   return (
-    <section id="article">
+    <article id="article">
       <img
         src={article.article.article_img_url}
         alt={article.article.title}
       ></img>
       <div>
         <h1>{article.article.title}</h1>
-        <p>by {article.article.author}</p>
+        <p>
+          Posted by {article.article.author} in {article.article.topic}.
+        </p>
       </div>
       <p>{article.article.body}</p>
-      <h3>
-        in: {article.article.topic} <br></br>
+
+      <section id="votes">
         <div
           onClick={() => {
             articleVote(1);
@@ -66,8 +68,8 @@ const Article = () => {
         >
           ⬇️
         </div>
-      </h3>
-    </section>
+      </section>
+    </article>
   );
 };
 export default Article;

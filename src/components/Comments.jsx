@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Comment from "./Comment";
 
-const Comments = ({ comment, comments, setComments }) => {
+const Comments = ({ comment, comments, setComments, setComment }) => {
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -17,7 +17,14 @@ const Comments = ({ comment, comments, setComments }) => {
       <section id="comments">
         <h2>comments</h2>
         {comments.map((comment) => {
-          return <Comment comment={comment} key={comment.comment_id} />;
+          return (
+            <Comment
+              comment={comment}
+              setComments={setComments}
+              setComment={setComment}
+              key={comment.comment_id}
+            />
+          );
         })}
       </section>
     );

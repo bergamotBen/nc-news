@@ -4,10 +4,30 @@ const ncNews = axios.create({
   baseURL: "https://news-7d6f.onrender.com/api",
 });
 
-const getAllArticles = () => {
-  return ncNews.get("/articles").then(({ data }) => {
-    return data;
-  });
+const getAllArticles = (orderQueries) => {
+  if (orderQueries) {
+    return ncNews
+      .get("/articles", {
+        params: { sort_by: orderQueries[0], order: orderQueries[1] },
+      })
+      .then(({ data }) => {
+        return data;
+      });
+  } else {
+    return ncNews.get(`/articles`).then(({ data }) => {
+      return data;
+    });
+  }
+};
+
+const getArticlesByTopic = (topic, orderQueries) => {
+  return ncNews
+    .get(`/articles?topic=${topic}`, {
+      params: { sort_by: orderQueries[0], order: orderQueries[1] },
+    })
+    .then(({ data }) => {
+      return data;
+    });
 };
 
 const getArticleById = (article_id) => {
@@ -38,10 +58,38 @@ const postCommentByArticleId = (article_id, comment) => {
     });
 };
 
+const getTopics = () => {
+  return ncNews.get("/topics").then((data) => {
+    return data;
+  });
+};
+
+const patchCommentVotes = (comment_id, inc_votes) => {
+  return ncNews.patch(`comments/${comment_id}`, { inc_votes }).then((data) => {
+    return data;
+  });
+};
+
+const deleteComment = (commentId) => {
+  return ncNews
+    .delete(`/comments/${commentId}`)
+    .then(() => {
+      const complete = "your comment has been deleted";
+      return complete;
+    })
+    .catch((err) => {
+      alert(err);
+    });
+};
+
 export {
   getAllArticles,
+  getArticlesByTopic,
   getArticleById,
   postCommentByArticleId,
   getCommentsByArticleId,
   patchArticleVotes,
+  getTopics,
+  patchCommentVotes,
+  deleteComment,
 };

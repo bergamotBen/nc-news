@@ -8,17 +8,18 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <section className="App">
       <Logo />
 
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path={`/articles`} element={<Home />} />
         <Route path={`/articles/:article_id`} element={<ReadArticle />} />
         <Route path="/notFound" element={<NotFound />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-    </div>
+    </section>
   );
 }
 

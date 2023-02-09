@@ -18,9 +18,9 @@ const AddComment = ({ comment, setComment, setComments }) => {
   }, [comment, setComment]);
 
   const changeHandler = (key, value) => {
-    setComment((currComments) => {
+    setComment((currComment) => {
       setIsValid(true);
-      const copy = { ...currComments };
+      const copy = { ...currComment };
       copy[key] = value;
       copy["username"] = userValue.loggedInUser.username;
       return copy;
@@ -44,13 +44,15 @@ const AddComment = ({ comment, setComment, setComments }) => {
     <section id="addComment">
       <h2>add comment</h2>
       <input
+        id="commentInput"
         type="text"
+        default=""
         onChange={(e) => {
           changeHandler("body", e.target.value);
         }}
       ></input>
       <button disabled={!isValid} type="submit" onClick={submitHandler}>
-        post comment
+        post
       </button>
     </section>
   );
