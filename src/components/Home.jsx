@@ -16,20 +16,17 @@ const Home = () => {
       setTopics(data.topics);
     });
   }, []);
-  if (topic === null) {
-    return (
-      <main id="home">
-        <SortAndFilter topics={topics} setOrderQueries={setOrderQueries} />{" "}
+  return (
+    <main id="home">
+      <SortAndFilter topics={topics} setOrderQueries={setOrderQueries} />{" "}
+      <AllArticles orderQueries={orderQueries} />
+      {topic === null ? (
         <AllArticles orderQueries={orderQueries} />
-      </main>
-    );
-  } else {
-    return (
-      <main id="home">
-        <SortAndFilter topics={topics} setOrderQueries={setOrderQueries} />{" "}
+      ) : (
         <ArticlesByTopic topic={topic} orderQueries={orderQueries} />
-      </main>
-    );
-  }
+      )}
+    </main>
+  );
 };
+
 export default Home;
