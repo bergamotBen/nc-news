@@ -16,7 +16,7 @@ const AllArticles = () => {
   }
   return (
     <section id="allArticles">
-      <h3>all articles</h3>
+      <h1>all articles</h1>
       {articlePreviews.map((article) => {
         return <ArticlePreview article={article} key={article.article_id} />;
       })}

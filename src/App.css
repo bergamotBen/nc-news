@@ -6,15 +6,37 @@ Colours
 #242423 CHARCOAL
 #333533 DARK GREY 
 */
-
+* {
+  text-decoration: none;
+}
 .App {
+  font-family: "Roboto Mono", monospace;
   height: 100%;
   display: grid;
-  grid-template-columns: 150px auto;
-  grid-template-rows: 150px auto;
+  grid-template-columns: 100px auto;
+  grid-template-rows: 100px auto;
   grid-template-areas:
     "logo nav"
     "main main";
+}
+
+h1 {
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 700;
+  font-style: italic;
+}
+h2 {
+  font-size: 19px;
+  font-weight: 400;
+}
+h3 {
+  font-size: 15px;
+  font-weight: 400;
+}
+h4 {
+  font-size: 15px;
+  font-weight: 300;
 }
 
 #logo {
@@ -48,34 +70,40 @@ Colours
   background-color: #333533;
   grid-area: allArticles;
 }
-#articlePreview {
+.articlePreview {
   text-align: left;
   text-decoration: none;
   color: #e8eddf;
-  margin: 10px;
   padding: 20px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  background-color: #333533;
+}
+.articlePreview:hover {
   background-color: #242423;
+  transition: 0.2s;
+
+  color: #f5925d;
 }
 
-#articlePreview img {
-  /* flex-grow: 4;
+.articlePreview img {
+  flex-grow: 10;
   padding: 10px;
-  height: 100px;
-  object-fit: contain; */
-  flex-grow: 3;
+  height: 200px;
+  object-fit: cover;
+  /* flex-grow: 3;
   height: 150px;
   width: 150px;
-  object-fit: cover;
+  object-fit: cover; */
 }
 
 #articleTitle {
   flex-grow: 3;
   text-decoration: none;
   grid-area: articleTitle;
+  font-weight: bolder;
 }
 #articleAuthor {
   flex-grow: 1;
@@ -124,4 +152,34 @@ Colours
 }
 #addComment {
   grid-area: addComment;
+}
+
+input[type="text"] {
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+  border-radius: 0px;
+  border: solid 1px;
+  border-color: #333533;
+}
+button {
+  font-family: "Roboto Mono", monospace;
+  border: solid 1px;
+  font-size: 15px;
+  background-color: white;
+}
+button:hover {
+  font-family: "Roboto Mono", monospace;
+  border: solid 1px;
+  font-size: 15px;
+  border-color: #333533;
+  background-color: #333533;
+  transition: 0.2s;
+}
+button:disabled {
+  font-family: "Roboto Mono", monospace;
+  border: solid 1px;
+  font-size: 15px;
+  border-color: #333533;
+  background-color: #333533;
+  transition: 0.2s;
 }
