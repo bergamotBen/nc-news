@@ -49,8 +49,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
             return <option key={topic.slug}>{topic.slug}</option>;
           })}
         </select>
-        {"  "}
-        <button tabIndex="2">submit</button>
+        <button tabIndex="2">view</button>
       </form>
 
       <form id="sort">
@@ -61,7 +60,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
           tabIndex="3"
           onChange={orderChangeHandler}
         />
-        <label htmlFor="created_at">date created</label>
+        <label htmlFor="created_at">date</label>
         <input
           type="radio"
           name="sortBy"
