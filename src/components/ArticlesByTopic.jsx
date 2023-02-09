@@ -11,11 +11,13 @@ const ArticlesByTopic = ({ orderQueries, topic }) => {
       setIsLoading(false);
     });
   }, [topic, orderQueries]);
+
   if (isLoading) {
     return <p>loading</p>;
   }
   return (
     <section id="allArticles">
+      <h1>{topic ? `articles about ${topic}` : `all articles`}</h1>
       {articlePreviews.map((article) => {
         return <ArticlePreview article={article} key={article.article_id} />;
       })}

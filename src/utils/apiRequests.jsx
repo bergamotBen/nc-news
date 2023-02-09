@@ -29,6 +29,7 @@ const getArticlesByTopic = (topic, orderQueries) => {
       return data;
     });
 };
+
 const getArticleById = (article_id) => {
   return ncNews.get(`articles/${article_id}`).then(({ data }) => {
     return data;
@@ -63,6 +64,12 @@ const getTopics = () => {
   });
 };
 
+const patchCommentVotes = (comment_id, inc_votes) => {
+  return ncNews.patch(`comments/${comment_id}`, { inc_votes }).then((data) => {
+    return data;
+  });
+};
+
 const deleteComment = (commentId) => {
   return ncNews
     .delete(`/comments/${commentId}`)
@@ -83,5 +90,6 @@ export {
   getCommentsByArticleId,
   patchArticleVotes,
   getTopics,
+  patchCommentVotes,
   deleteComment,
 };

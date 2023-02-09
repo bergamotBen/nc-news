@@ -7,7 +7,7 @@ const Nav = () => {
   } = useContext(UserContext);
 
   return (
-    <div id="nav">
+    <nav id="nav">
       <h3>nav</h3>
       <section id="user">
         <img src={avatar_url} alt="user avatar"></img>
