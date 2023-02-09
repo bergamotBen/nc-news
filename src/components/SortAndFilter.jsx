@@ -38,7 +38,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
   return (
     <section id="sortAndFilter">
       <form id="filter" onSubmit={submitHandler}>
-        <select onChange={selectChangeHandler} tabindex="1">
+        <select onChange={selectChangeHandler} tabIndex="1">
           <option key="select">choose a topic</option>
           <option key="selectAll" value="">
             all
@@ -47,7 +47,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
             return <option key={topic.slug}>{topic.slug}</option>;
           })}
         </select>
-        <button tabindex="2">submit</button>
+        <button tabIndex="2">submit</button>
       </form>
 
       <form id="sort">
@@ -55,7 +55,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
           type="radio"
           name="sortBy"
           value="created_at"
-          tabindex="3"
+          tabIndex="3"
           onChange={orderChangeHandler}
         />
         <label htmlFor="created_at">date created</label>
@@ -63,7 +63,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
           type="radio"
           name="sortBy"
           value="comment_count"
-          tabindex="4"
+          tabIndex="4"
           onChange={orderChangeHandler}
         />
         <label htmlFor="comment_count">comments</label>
@@ -71,13 +71,13 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
           type="radio"
           name="sortBy"
           value="votes"
-          tabindex="5"
+          tabIndex="5"
           onChange={orderChangeHandler}
         />
         <label htmlFor="votes">votes</label>
         <label
           aria-label="ascending or descending"
-          tabindex="6"
+          tabIndex="6"
           onClick={() => {
             clickHandler();
           }}
