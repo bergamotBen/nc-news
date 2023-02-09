@@ -14,8 +14,11 @@ const ArticlePreview = (article) => {
         <br></br>
         <h3 id="articleAuthor">by {article.article.author}</h3>
         <div id="details">
-          <div>votes: {article.article.votes} </div>{" "}
-          <div>comments:{article.article.comment_count}</div>
+          <h3>
+            votes: {article.article.votes} <br />
+            comments:
+            {article.article.comment_count}
+          </h3>
         </div>
       </article>
     </Link>

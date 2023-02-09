@@ -1,17 +1,8 @@
-/* 
-Colours
-#E8EDDF PALE GREY
-#F5CB5C PALE YELLOW
-#F5925D PALE ORANGE
-#242423 CHARCOAL
-#333533 DARK GREY 
-*/
 * {
   text-decoration: none;
 }
 .App {
   font-family: "Roboto Mono", monospace;
-  /* height: 100%; */
   display: grid;
   grid-template-columns: 100px auto;
   grid-template-rows: 100px auto;
@@ -20,7 +11,6 @@ Colours
     "logo nav"
     "main main";
 }
-
 h1 {
   text-decoration: none;
   font-size: 23px;
@@ -39,7 +29,6 @@ h4 {
   font-size: 15px;
   font-weight: 300;
 }
-
 #logo {
   padding-top: 8px;
   display: flex;
@@ -106,20 +95,16 @@ h4 {
 #allArticles {
   text-decoration: none;
   height: 100%;
-  background-color: #333533;
+  background-color: white;
 }
+
 .articlePreview {
   text-align: left;
   text-decoration: none;
   color: #e8eddf;
   padding-top: 20px;
-  padding-bottom: 0px;
-  display: flex;
-  align-items: last baseline;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  background-color: #333533;
 }
+
 .articlePreview:hover {
   background-color: #242423;
   transition: 0.2s;
@@ -128,13 +113,9 @@ h4 {
 }
 
 .articlePreview img {
-  flex-grow: 500;
-  height: 250px;
   object-fit: cover;
 }
-
 #articleTitle {
-  flex-grow: 3;
   text-decoration: none;
   font-weight: bolder;
   text-align: right;
@@ -142,16 +123,13 @@ h4 {
   line-height: 170%;
 }
 #articleAuthor {
-  flex-grow: 100;
   text-decoration: none;
   text-align: left;
 }
 
 #details {
-  flex-grow: 1;
   text-align: right;
 }
-
 #readArticle {
   grid-area: main;
   display: grid;
@@ -178,7 +156,6 @@ h4 {
 #comments {
   grid-area: comments;
 }
-
 #comment {
   background-color: #f5925d;
   margin-bottom: 5px;
@@ -274,4 +251,74 @@ label {
 }
 #postCommentButton {
   padding: 8px;
+}
+
+@media only screen and (max-width: 700px) {
+  .articlePreview {
+    padding-bottom: 0px;
+    display: flex;
+    align-items: last baseline;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #333533;
+  }
+
+  .articlePreview img {
+    flex-grow: 500;
+    height: 250px;
+  }
+
+  #articleTitle {
+    flex-grow: 3;
+  }
+  #articleAuthor {
+    flex-grow: 100;
+  }
+
+  #details {
+    flex-grow: 1;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .App {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  #allPreviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-self: stretch;
+  }
+  .articlePreview {
+    width: 18rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "img img"
+      "title title"
+      "author details";
+    justify-self: baseline;
+  }
+
+  .articlePreview img {
+    width: 18rem;
+    grid-area: img;
+  }
+
+  #articleTitle {
+    grid-area: title;
+  }
+  #articleAuthor {
+    grid-area: author;
+    align-self: flex-end;
+  }
+
+  #details {
+    grid-area: details;
+    align-self: flex-end;
+  }
 }

@@ -17,9 +17,11 @@ const AllArticles = ({ orderQueries }) => {
   return (
     <section id="allArticles">
       <h1>all articles</h1>
-      {articlePreviews.map((article) => {
-        return <ArticlePreview article={article} key={article.article_id} />;
-      })}
+      <div id="allPreviews">
+        {articlePreviews.map((article) => {
+          return <ArticlePreview article={article} key={article.article_id} />;
+        })}
+      </div>
     </section>
   );
 };
