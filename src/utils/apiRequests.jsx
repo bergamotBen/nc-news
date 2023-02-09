@@ -69,6 +69,12 @@ const getTopics = () => {
   });
 };
 
+const patchCommentVotes = (comment_id, inc_votes) => {
+  return ncNews.patch(`comments/${comment_id}`, { inc_votes }).then((data) => {
+    return data;
+  });
+};
+
 export {
   getAllArticles,
   getArticlesByTopic,
@@ -77,4 +83,5 @@ export {
   getCommentsByArticleId,
   patchArticleVotes,
   getTopics,
+  patchCommentVotes,
 };
