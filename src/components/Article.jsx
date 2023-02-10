@@ -1,7 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getArticleById, patchArticleVotes } from "../utils/apiRequests";
-
+import asc from "../assets/asc.png";
+import desc from "../assets/desc.png";
 const Article = () => {
   const goTo = useNavigate();
   const { article_id } = useParams();
@@ -39,10 +40,11 @@ const Article = () => {
     return <h1> loading </h1>;
   }
   return (
-    <article id="article">
+    <section id="article">
       <img
         src={article.article.article_img_url}
         alt={article.article.title}
+        id="article-img"
       ></img>
       <div>
         <h1>{article.article.title}</h1>
@@ -52,24 +54,28 @@ const Article = () => {
       </div>
       <p>{article.article.body}</p>
 
-      <section id="votes">
-        <div
+      <article id="articleVotes">
+        <img
+          id="up-arrow"
+          src={asc}
+          height="18px"
+          alt="up arrow"
           onClick={() => {
             articleVote(1);
           }}
-        >
-          ⬆️
-        </div>
-        votes: {articleVotes}
-        <div
+        />
+        {"  "} votes: {articleVotes} {"  "}
+        <img
+          id="down-arrow"
+          src={desc}
+          height="18px"
+          alt="down arrow"
           onClick={() => {
             articleVote(-1);
           }}
-        >
-          ⬇️
-        </div>
-      </section>
-    </article>
+        />
+      </article>
+    </section>
   );
 };
 export default Article;

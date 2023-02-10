@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { postCommentByArticleId } from "../utils/apiRequests";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
+import commentPic from "../assets/comment.png";
 
 const AddComment = ({ comment, setComment, setComments }) => {
   const { article_id } = useParams();
@@ -27,7 +28,7 @@ const AddComment = ({ comment, setComment, setComments }) => {
     });
   };
   const submitHandler = () => {
-    if (isValid) {
+    if (isValid && comment.body.replace(/\s/g, "").length) {
       setIsValid(true);
       setComments((currComments) => {
         return [comment, ...currComments];
@@ -42,7 +43,10 @@ const AddComment = ({ comment, setComment, setComments }) => {
 
   return (
     <section id="addComment">
-      <h2>add comment</h2>
+      <h2>
+        {" "}
+        <img src={commentPic} alt="" height="24px" /> add comment
+      </h2>
       <input
         id="commentInput"
         type="text"
@@ -50,8 +54,14 @@ const AddComment = ({ comment, setComment, setComments }) => {
         onChange={(e) => {
           changeHandler("body", e.target.value);
         }}
-      ></input>
-      <button disabled={!isValid} type="submit" onClick={submitHandler}>
+      ></input>{" "}
+      {"  "}
+      <button
+        disabled={!isValid}
+        type="submit"
+        onClick={submitHandler}
+        id="postCommentButton"
+      >
         post
       </button>
     </section>

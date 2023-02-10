@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-
+import teacup from "../assets/teacup.png";
 const Logo = () => {
   return (
     <Link to="/" id="logo">
-      <header id="logo">
-        <h3>logo</h3>
-      </header>
+      <img src={teacup} height="65px" alt="logo" />
+      <h2>news</h2>
     </Link>
   );
 };

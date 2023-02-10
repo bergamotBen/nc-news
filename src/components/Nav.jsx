@@ -8,10 +8,9 @@ const Nav = () => {
 
   return (
     <nav id="nav">
-      <h3>nav</h3>
       <section id="user">
-        <img src={avatar_url} alt="user avatar"></img>
         <h4>{username}</h4>
+        <img src={avatar_url} alt="user avatar"></img>
       </section>
     </nav>
   );

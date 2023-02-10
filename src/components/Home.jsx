@@ -18,8 +18,7 @@ const Home = () => {
   }, []);
   return (
     <main id="home">
-      <SortAndFilter topics={topics} setOrderQueries={setOrderQueries} />{" "}
-      <AllArticles orderQueries={orderQueries} />
+      <SortAndFilter topics={topics} setOrderQueries={setOrderQueries} />
       {topic === null ? (
         <AllArticles orderQueries={orderQueries} />
       ) : (

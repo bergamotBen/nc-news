@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import asc from "../assets/asc.png";
+import desc from "../assets/desc.png";
 
 const SortAndFilter = ({ setOrderQueries, topics }) => {
-  const [sortOrder, setSortOrder] = useState(["DESC", " ⬇️ "]);
+  const [sortOrder, setSortOrder] = useState(["DESC", desc]);
   const [orderBy, setOrderBy] = useState("");
 
   const clickHandler = () => {
     if (sortOrder[0] === "DESC") {
       setOrderQueries([orderBy, "ASC"]);
-      setSortOrder(["ASC", " ⬆️ "]);
+      setSortOrder(["ASC", asc]);
     } else if (sortOrder[0] === "ASC") {
       setOrderQueries([orderBy, "DESC"]);
-      setSortOrder(["DESC", " ⬇️ "]);
+      setSortOrder(["DESC", desc]);
     }
   };
 
@@ -38,7 +40,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
   return (
     <section id="sortAndFilter">
       <form id="filter" onSubmit={submitHandler}>
-        <select onChange={selectChangeHandler} tabindex="1">
+        <select onChange={selectChangeHandler} tabIndex="1">
           <option key="select">choose a topic</option>
           <option key="selectAll" value="">
             all
@@ -47,7 +49,7 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
             return <option key={topic.slug}>{topic.slug}</option>;
           })}
         </select>
-        <button tabindex="2">submit</button>
+        <button tabIndex="2">view</button>
       </form>
 
       <form id="sort">
@@ -55,15 +57,15 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
           type="radio"
           name="sortBy"
           value="created_at"
-          tabindex="3"
+          tabIndex="3"
           onChange={orderChangeHandler}
         />
-        <label htmlFor="created_at">date created</label>
+        <label htmlFor="created_at">date</label>
         <input
           type="radio"
           name="sortBy"
           value="comment_count"
-          tabindex="4"
+          tabIndex="4"
           onChange={orderChangeHandler}
         />
         <label htmlFor="comment_count">comments</label>
@@ -71,18 +73,18 @@ const SortAndFilter = ({ setOrderQueries, topics }) => {
           type="radio"
           name="sortBy"
           value="votes"
-          tabindex="5"
+          tabIndex="5"
           onChange={orderChangeHandler}
         />
         <label htmlFor="votes">votes</label>
         <label
           aria-label="ascending or descending"
-          tabindex="6"
+          tabIndex="6"
           onClick={() => {
             clickHandler();
           }}
         >
-          {sortOrder[1]}
+          <img src={sortOrder[1]} height="22px" alt="sort order"></img>
         </label>
       </form>
     </section>

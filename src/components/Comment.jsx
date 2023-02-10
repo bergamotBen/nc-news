@@ -2,6 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { patchCommentVotes } from "../utils/apiRequests";
 import { deleteComment } from "../utils/apiRequests";
+import trash from "../assets/trash.png";
+import asc from "../assets/asc.png";
+import desc from "../assets/desc.png";
 
 const Comment = ({ comment, setComment, setComments }) => {
   const { comment_id } = comment;
@@ -64,34 +67,38 @@ const Comment = ({ comment, setComment, setComments }) => {
 
   return (
     <article id="comment">
-      <p> {comment.body}</p>
+      <p className="commentBody"> {comment.body}</p>
       {posted.length > 1 ? (
         <div>
-          <p>
+          <p className="commentBody">
             Posted by {comment.author}, on {posted[2]}/{posted[1]}/{posted[0]}{" "}
             at {posted[3]}:{posted[4]}.
           </p>
           <section id="votes">
-            <div
+            <img
+              id="up-arrow"
+              alt="up arrow"
+              src={asc}
+              height="18px"
               onClick={() => {
                 commentVote(1);
               }}
-            >
-              ⬆️
-            </div>
-            votes: {commentVotes}
-            <div
+            />
+            votes:{commentVotes}
+            <img
+              id="down-arrow"
+              alt="down arrow"
+              src={desc}
+              height="18px"
               onClick={() => {
                 commentVote(-1);
               }}
-            >
-              ⬇️
-            </div>
+            />
           </section>
         </div>
       ) : (
         <div>
-          <p>
+          <p className="commentBody">
             {userValue.loggedInUser.username}, {posted[0]}
           </p>
 
@@ -100,8 +107,7 @@ const Comment = ({ comment, setComment, setComments }) => {
               undoHandler();
             }}
           >
-            {" "}
-            🗑{" "}
+            <img src={trash} height="30px" alt="delete" />
           </p>
         </div>
       )}
@@ -111,8 +117,7 @@ const Comment = ({ comment, setComment, setComments }) => {
           deleteHandler();
         }}
       >
-        {" "}
-        🗑{" "}
+        <img src={trash} height="30px" alt="delete" />
       </p>
     </article>
   );

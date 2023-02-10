@@ -2,6 +2,8 @@ import { getCommentsByArticleId } from "../utils/apiRequests";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Comment from "./Comment";
+import userComments from "../assets/userComments.png";
+import cross from "../assets/cross.png";
 
 const Comments = ({ comment, comments, setComments, setComment }) => {
   const { article_id } = useParams();
@@ -15,7 +17,10 @@ const Comments = ({ comment, comments, setComments, setComment }) => {
   if (comments.length > 0) {
     return (
       <section id="comments">
-        <h2>comments</h2>
+        <h2>
+          <img src={userComments} alt="" height="30px" />
+          comments
+        </h2>
         {comments.map((comment) => {
           return (
             <Comment
@@ -29,6 +34,11 @@ const Comments = ({ comment, comments, setComments, setComment }) => {
       </section>
     );
   }
-  return <h2>👀 no comments to see here yet 👀 </h2>;
+  return (
+    <h2>
+      <img src={cross} alt="" height="24px" /> no comments to see here yet
+      <img src={cross} alt="" height="24px" />
+    </h2>
+  );
 };
 export default Comments;
