@@ -184,6 +184,12 @@ h4 {
 #down-arrow:hover {
   transform: translateY(5px);
 }
+#up-arrow:active {
+  transform: translateY(-7px);
+}
+#down-arrow:active {
+  transform: translateY(7px);
+}
 #comment:hover {
   background-color: #a7a7a7;
   transition: 0.2s;
