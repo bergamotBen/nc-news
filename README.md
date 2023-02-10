@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+## 📖 README contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 🔗 Find the hosted version here: [nc-news](https://magnificent-jelly-b730c4.netlify.app/).
 
-## Available Scripts
+### 🔗 Find the backend git repo here: [be-nc-news](https://github.com/bergamotBen/be-nc-news).
 
-In the project directory, you can run:
+### 📋 Summary of the project.
 
-### `npm start`
+### 🛠 How to clone repo, install packages and run scripts.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ⚙️ Minimum version of node
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+### 📋 Summary of the project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is my first React project. It is a CRUD application based on an api that I built. Users can view, sort and filter, vote and comment on articles. In this version, a dummy user is statically logged-in to demonstrate posting and deleting comments.
 
-### `npm run build`
+The UI is designed to support the user's expectations. When components are rendering, visual feedback is given to the user. The states of buttons indicate whether they can be or are being clicked. Components are optimistically rendered to support the flow of data on the page. If an optimistically rendered request fails, the component returns to its original state and the user is informed.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The UI changes according to the user's screen size to utilise available space.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🛠 How to clone repo, install packages and run scripts.
 
-### `npm run eject`
+To have a closer look at the app works:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Clone the repo.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clone the repo by pasting
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+git clone https://github.com/bergamotBen/nc-news.git
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+into the terminal.
 
-## Learn More
+### 2. Install packages.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project was created with
+-React
+-React router DOM
+-Axios
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Install these packages with
 
-### Code Splitting
+```
+npm i
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Run the project.
 
-### Analyzing the Bundle Size
+To run the project use
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+npm start
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### ⚙️ Minimum version of node
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The minimum version of Node is v19.1.0.
