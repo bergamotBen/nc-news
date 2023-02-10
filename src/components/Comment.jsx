@@ -76,6 +76,7 @@ const Comment = ({ comment, setComment, setComments }) => {
           </p>
           <section id="votes">
             <img
+              id="up-arrow"
               alt="up arrow"
               src={asc}
               height="18px"
@@ -85,6 +86,7 @@ const Comment = ({ comment, setComment, setComments }) => {
             />
             votes:{commentVotes}
             <img
+              id="down-arrow"
               alt="down arrow"
               src={desc}
               height="18px"

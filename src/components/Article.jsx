@@ -56,6 +56,7 @@ const Article = () => {
 
       <article id="articleVotes">
         <img
+          id="up-arrow"
           src={asc}
           height="18px"
           alt="up arrow"
@@ -65,6 +66,7 @@ const Article = () => {
         />
         {"  "} votes: {articleVotes} {"  "}
         <img
+          id="down-arrow"
           src={desc}
           height="18px"
           alt="down arrow"

@@ -37,8 +37,8 @@ h4 {
   justify-content: center;
   height: 100px;
   grid-area: logo;
-  background-color: #e8eddf;
-  color: #242423;
+  background-color: white;
+  color: black;
 }
 #logo img {
   margin-bottom: -20px;
@@ -55,13 +55,15 @@ h4 {
   grid-area: nav;
   display: flex;
   justify-content: space-between;
-  background-color: #f5cb5c;
+  background-color: white;
+}
+#nav img {
+  filter: grayscale(75%);
 }
 #home {
   text-decoration: none;
   height: 100%;
   grid-area: main;
-  background-color: #333533;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto auto;
@@ -74,7 +76,7 @@ h4 {
   align-items: baseline;
   padding: 3px;
   height: 100%;
-  background-color: #f5925d;
+  background-color: white;
   grid-area: sortAndFilter;
   display: flex;
   justify-content: space-between;
@@ -101,8 +103,9 @@ h4 {
 .articlePreview {
   text-align: left;
   text-decoration: none;
-  color: #e8eddf;
+  color: black;
   padding-top: 20px;
+  transition: 0.2s;
 }
 
 .articlePreview:hover {
@@ -114,6 +117,11 @@ h4 {
 
 .articlePreview img {
   object-fit: cover;
+  filter: grayscale(50%);
+}
+.articlePreview img:hover {
+  object-fit: cover;
+  filter: grayscale(0%);
 }
 #articleTitle {
   text-decoration: none;
@@ -157,12 +165,30 @@ h4 {
   grid-area: comments;
 }
 #comment {
-  background-color: #f5925d;
   margin-bottom: 5px;
   padding-left: 2px;
   padding-right: 2px;
   padding-top: 1px;
+  transition: 0.2s;
 }
+
+#up-arrow {
+  transition: 0.2s;
+}
+#down-arrow {
+  transition: 0.2s;
+}
+#up-arrow:hover {
+  transform: translateY(-5px);
+}
+#down-arrow:hover {
+  transform: translateY(5px);
+}
+#comment:hover {
+  background-color: #a7a7a7;
+  transition: 0.2s;
+}
+
 #comments h2 {
   display: flex;
   align-items: center;
@@ -198,23 +224,30 @@ button {
   font-size: 15px;
   background-color: white;
   margin-left: 0.5rem;
+  transition: 0.2s;
 }
 button:hover {
   font-family: "Roboto Mono", monospace;
   border: solid 1px;
   font-size: 15px;
   border-color: #333533;
-  background-color: #333533;
+  background-color: white;
   transition: 0.2s;
+  box-shadow: 4px 5px;
+}
+button:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 button:disabled {
   font-family: "Roboto Mono", monospace;
   border: solid 1px;
   font-size: 15px;
-  border-color: #878787;
-  background-color: #878787;
+  border-color: #a7a7a7;
+  background-color: #a7a7a7;
   transition: 0.4s;
   color: #e8eddf;
+  pointer-events: none;
 }
 
 #user {
@@ -254,13 +287,15 @@ label {
 }
 
 @media only screen and (max-width: 700px) {
+  .App {
+    margin: 2%;
+  }
   .articlePreview {
     padding-bottom: 0px;
     display: flex;
     align-items: last baseline;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: #333533;
   }
 
   .articlePreview img {
@@ -320,5 +355,13 @@ label {
   #details {
     grid-area: details;
     align-self: flex-end;
+  }
+
+  #article {
+    display: grid;
+  }
+  #article-img {
+    width: 100%;
+    object-fit: cover;
   }
 }
