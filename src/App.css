@@ -104,13 +104,13 @@ h4 {
   text-decoration: none;
   color: black;
   padding-top: 20px;
-  transition: 0.2s;
+  transition: box-shadow 0.4s, background-color 0.5s;
 }
 
 .articlePreview:hover {
   background-color: rgb(0, 255, 123);
   box-shadow: rgb(0, 255, 123) 15px 15px;
-  /* transition: 0.2s; */
+  transition: background-color 0.2s, box-shadow 1s;
 }
 
 .articlePreview img {
@@ -167,7 +167,7 @@ h4 {
   padding-left: 2px;
   padding-right: 2px;
   padding-top: 1px;
-  transition: 0.2s;
+  transition: box-shadow 0.4s, background-color 0.5s;
 }
 
 #up-arrow {
@@ -191,7 +191,7 @@ h4 {
 #comment:hover {
   background-color: #ff9055;
   box-shadow: #ff9055 10px 10px;
-  transition: 0.2s;
+  transition: background-color 0.2s, box-shadow 1s;
 }
 
 #comments h2 {
@@ -312,7 +312,10 @@ label {
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
-
+  #comment {
+    border-top: #a7a7a772 1px solid;
+    margin-bottom: 10px;
+  }
   .articlePreview img {
     flex-grow: 500;
     height: 250px;
