@@ -47,23 +47,25 @@ const AddComment = ({ comment, setComment, setComments }) => {
         {" "}
         <img src={commentPic} alt="" height="24px" /> add comment
       </h2>
-      <input
-        id="commentInput"
-        type="text"
-        default=""
-        onChange={(e) => {
-          changeHandler("body", e.target.value);
-        }}
-      ></input>{" "}
-      {"  "}
-      <button
-        disabled={!isValid}
-        type="submit"
-        onClick={submitHandler}
-        id="postCommentButton"
-      >
-        post
-      </button>
+      <div id="commentAdder">
+        <input
+          id="commentInput"
+          type="text"
+          default=""
+          onChange={(e) => {
+            changeHandler("body", e.target.value);
+          }}
+        ></input>{" "}
+        {"  "}
+        <button
+          disabled={!isValid}
+          type="submit"
+          onClick={submitHandler}
+          id="postCommentButton"
+        >
+          post
+        </button>
+      </div>
     </section>
   );
 };
