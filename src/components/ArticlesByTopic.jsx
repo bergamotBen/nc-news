@@ -17,10 +17,12 @@ const ArticlesByTopic = ({ orderQueries, topic }) => {
   }
   return (
     <section id="allArticles">
-      <h1>{topic ? `articles about ${topic}` : `all articles`}</h1>
-      {articlePreviews.map((article) => {
-        return <ArticlePreview article={article} key={article.article_id} />;
-      })}
+      <h1>{topic ? `filed under ${topic}` : `all articles`}</h1>
+      <div id="allPreviews">
+        {articlePreviews.map((article) => {
+          return <ArticlePreview article={article} key={article.article_id} />;
+        })}
+      </div>
     </section>
   );
 };

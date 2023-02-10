@@ -1,6 +1,9 @@
 * {
   text-decoration: none;
 }
+html {
+  background-color: white;
+}
 .App {
   font-family: "Roboto Mono", monospace;
   display: grid;
@@ -37,7 +40,6 @@ h4 {
   justify-content: center;
   height: 100px;
   grid-area: logo;
-  background-color: white;
   color: black;
 }
 #logo img {
@@ -55,7 +57,6 @@ h4 {
   grid-area: nav;
   display: flex;
   justify-content: space-between;
-  background-color: white;
 }
 #nav img {
   filter: grayscale(75%);
@@ -76,7 +77,6 @@ h4 {
   align-items: baseline;
   padding: 3px;
   height: 100%;
-  background-color: white;
   grid-area: sortAndFilter;
   display: flex;
   justify-content: space-between;
@@ -97,7 +97,6 @@ h4 {
 #allArticles {
   text-decoration: none;
   height: 100%;
-  background-color: white;
 }
 
 .articlePreview {
@@ -109,10 +108,9 @@ h4 {
 }
 
 .articlePreview:hover {
-  background-color: #242423;
-  transition: 0.2s;
-
-  color: #f5925d;
+  background-color: rgb(0, 255, 123);
+  box-shadow: rgb(0, 255, 123) 15px 15px;
+  /* transition: 0.2s; */
 }
 
 .articlePreview img {
@@ -191,7 +189,8 @@ h4 {
   transform: translateY(7px);
 }
 #comment:hover {
-  background-color: #a7a7a7;
+  background-color: #ff9055;
+  box-shadow: #ff9055 10px 10px;
   transition: 0.2s;
 }
 
@@ -292,6 +291,16 @@ label {
   padding: 8px;
 }
 
+#notFound {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-area: main;
+  margin: 3rem;
+  padding: 1rem;
+  background-color: rgb(0, 255, 123);
+  box-shadow: 1rem 1rem rgb(0, 255, 123);
+}
 @media only screen and (max-width: 700px) {
   .App {
     margin: 2%;
