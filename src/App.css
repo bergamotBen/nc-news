@@ -352,7 +352,7 @@ label {
     align-self: stretch;
   }
   .articlePreview {
-    /* width: 18rem; */
+    width: 18rem;
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
@@ -364,7 +364,7 @@ label {
   }
 
   .articlePreview img {
-    /* width: 18rem; */
+    width: 18rem;
     grid-area: img;
   }
 
