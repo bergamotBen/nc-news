@@ -2,9 +2,13 @@
   text-decoration: none;
 }
 html {
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
   background-color: white;
   width: 100vw;
 }
+
 .App {
   font-family: "Roboto Mono", monospace;
   display: grid;
@@ -156,7 +160,7 @@ h4 {
 #article-img {
   flex-grow: 3;
   height: 300px;
-  width: 300px;
+  /* width: 300px; */
   object-fit: cover;
 }
 
@@ -222,7 +226,7 @@ input[type="text"] {
   border: solid 1px;
   border-color: #333533;
   padding: 8px;
-  width: 300px;
+  width: 20%;
 }
 button {
   font-family: "Roboto Mono", monospace;
@@ -304,6 +308,7 @@ label {
 }
 @media only screen and (max-width: 700px) {
   .App {
+    width: 100vw;
     margin: 2%;
   }
   .articlePreview {
@@ -347,7 +352,7 @@ label {
     align-self: stretch;
   }
   .articlePreview {
-    width: 18rem;
+    /* width: 18rem; */
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
@@ -359,7 +364,7 @@ label {
   }
 
   .articlePreview img {
-    width: 18rem;
+    /* width: 18rem; */
     grid-area: img;
   }
 
@@ -380,7 +385,7 @@ label {
     display: grid;
   }
   #article-img {
-    width: 100%;
+    /* width: 100%; */
     object-fit: cover;
   }
 }
