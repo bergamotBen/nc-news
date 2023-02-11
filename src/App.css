@@ -3,6 +3,7 @@
 }
 html {
   background-color: white;
+  width: 100vw;
 }
 .App {
   font-family: "Roboto Mono", monospace;
