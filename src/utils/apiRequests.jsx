@@ -20,7 +20,7 @@ const getAllArticles = (orderQueries) => {
   }
 };
 
-const getArticlesByTopic = (topic, orderQueries) => {
+const getArticlesByTopic = (topic = "", orderQueries) => {
   return ncNews
     .get(`/articles?topic=${topic}`, {
       params: { sort_by: orderQueries[0], order: orderQueries[1] },

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import AllArticles from "./AllArticles";
+import Articles from "./Articles";
 import SortAndFilter from "./SortAndFilter";
-import ArticlesByTopic from "./ArticlesByTopic";
+
 import { getTopics } from "../utils/apiRequests";
 import { useSearchParams } from "react-router-dom";
 
@@ -19,11 +19,7 @@ const Home = () => {
   return (
     <main id="home">
       <SortAndFilter topics={topics} setOrderQueries={setOrderQueries} />
-      {topic === null ? (
-        <AllArticles orderQueries={orderQueries} />
-      ) : (
-        <ArticlesByTopic topic={topic} orderQueries={orderQueries} />
-      )}
+      <Articles topic={topic} orderQueries={orderQueries}></Articles>
     </main>
   );
 };

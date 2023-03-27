@@ -1,15 +1,23 @@
 import ArticlePreview from "./ArticlePreview";
 import { useState, useEffect } from "react";
-import { getArticlesByTopic } from "../utils/apiRequests";
+import { getArticlesByTopic, getAllArticles } from "../utils/apiRequests";
 
-const ArticlesByTopic = ({ orderQueries, topic }) => {
+const Articles = ({ orderQueries, topic }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [articlePreviews, setArticlePreviews] = useState([]);
+
   useEffect(() => {
-    getArticlesByTopic(topic, orderQueries).then((articles) => {
-      setArticlePreviews(articles.articles);
-      setIsLoading(false);
-    });
+    if (topic) {
+      getArticlesByTopic(topic, orderQueries).then((articles) => {
+        setArticlePreviews(articles.articles);
+        setIsLoading(false);
+      });
+    } else {
+      getAllArticles(orderQueries).then((articles) => {
+        setArticlePreviews(articles.articles);
+        setIsLoading(false);
+      });
+    }
   }, [topic, orderQueries]);
 
   if (isLoading) {
@@ -18,6 +26,7 @@ const ArticlesByTopic = ({ orderQueries, topic }) => {
   return (
     <section id="allArticles">
       <h1>{topic ? `filed under ${topic}` : `all articles`}</h1>
+
       <div id="allPreviews">
         {articlePreviews.map((article) => {
           return <ArticlePreview article={article} key={article.article_id} />;
@@ -27,4 +36,4 @@ const ArticlesByTopic = ({ orderQueries, topic }) => {
   );
 };
 
-export default ArticlesByTopic;
+export default Articles;
