@@ -12,7 +12,7 @@ const AllArticles = ({ orderQueries }) => {
     });
   }, [orderQueries]);
   if (isLoading) {
-    return <p>loading</p>;
+    return <p>loading (this is hosted on a free service and may take a minute or two.) </p>;
   }
   return (
     <section id="allArticles">
